@@ -48,11 +48,11 @@ button {
     color: white;
     background: transparent;
     border: 1px solid white;
-    display: flex;
+    display: inline-flex;
     margin: 5px;
     padding: 10px;
     align-items: center;
-    
+  
 }
 
 .del-btn {
