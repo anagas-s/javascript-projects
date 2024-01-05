@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container {
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #292a2d;
+    padding: 20px;
+}
+
+.input-box{
+    border: 1px solid black;
+    padding: 20px;
+}
+
+input,textarea {
+    width: 100%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    margin-top: 5px;
+    color: white;
+    font-size: medium;
+}
+
+button {
+    background:transparent;
+    color: white;
+    padding: 10px 12px;
+    border: 1px solid white;
+    cursor: pointer;
+}
