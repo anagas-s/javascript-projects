@@ -3,19 +3,17 @@
  const addText = document.querySelector("#addText");
  const addButton = document.querySelector("#addNote");
  const notesContainer = document.querySelector("#notes");
-
-
+ 
 //Event Listeners
  addButton.addEventListener("click",addNotes);
-
-
+ notesContainer.addEventListener("click",deleteNotes);
 
 
 
  //Functions
  function addNotes(){
-    const title = addTitle.value;
-    const text=addText.value;
+    let title = addTitle.value;
+    let text=addText.value;
     if(text === ""){
         alert("Add your note");
         return;
@@ -36,28 +34,14 @@
     notesTitle.innerText = title;
     notesText.innerText = text;
     notesDiv.appendChild(contentDiv);
-    // notesDiv.appendChild(notesText);
     notesDiv.appendChild(deletebtn);
     notesContainer.appendChild(notesDiv);
+    addTitle.value = "";
+    addText.value = "";
+}
 
-
-
-
-
-
-
-
-
-    // const noteObj = {
-    //     title: addTitle.value,
-    //     note: addText.value,
-    // }
-    // notes.push(noteObj);
- }
-
-//  function showNotes(){
-//     let notes = '';
-//     for(let i=0;i<notes.length;i++){
-        
-//     }
-//  }
+function deleteNotes(e){
+    const item = e.target;
+   const note = item.parentElement;
+   note.remove();
+}
