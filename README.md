@@ -12,5 +12,5 @@ In this repository, I'm embarking on a journey to master vanilla Javascript by b
 - **End Goal:** Building sophisticated Javascript applications demonstrating a strong command over the language and its capabilties.
 
 # Projects
-1. Todo List:
-2. 
+1. Todo List
+2. Notes App
