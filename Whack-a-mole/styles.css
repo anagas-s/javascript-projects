@@ -55,6 +55,8 @@ button:hover {
     display: flex;
     flex-wrap: wrap;
    justify-content: center;
+   max-width: 600px;
+   
 }
 
 .square {
