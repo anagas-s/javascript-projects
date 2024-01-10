@@ -1,11 +1,15 @@
 let score = document.getElementById('score')
-let timeLeft = document.getElementById('timeleft')
+let timeLeft = document.getElementById('timeLeft')
 let startNewGameBtn = document.getElementById('startNewGame')
 let pauseGameBtn = document.getElementById('pauseGame')
 let squares = document.querySelectorAll(".square");
 let currentScore =0;
 let timeRemaining = 60;
-let hitPos;
+let hitPos = null;
+let timerId = null;
+let randomPositionId = null;
+
+
 
 
 function randomPosition() {
@@ -18,36 +22,61 @@ function randomPosition() {
     hitPos = randomSquare.id;
 
 }
+randomPosition();
 
 
 function countDown(){
     timeRemaining--;
     timeLeft.innerHTML =  `Time Left: ${timeRemaining}`;
+    if(timeRemaining === 0) {
+        clearInterval(timerId);
+        clearInterval(randomPositionId);
+    }
 }
+
+function startGame(){
+    currentScore = 0;
+    timeRemaining =60;
+    score.innerHTML = "Your Score: 0";
+    timeLeft.innerHTML = "Time Left: 60";
+    //callback function
+   
+    timerId =  setInterval(randomPosition,1000);
+    randomPositionId =  setInterval(countDown,1000);
+
+
+}
+
+function pauseResumeGame(){
+    if(pauseGameBtn.textContent === 'Pause'){
+        
+        clearInterval(timerId);
+        clearInterval(randomPositionId);
+        timerId = null;
+        randomPositionId = null;
+        pauseGameBtn.textContent = 'Resume'
+    }else {
+        
+        timerId =  setInterval(randomPosition,1000);
+        randomPositionId =  setInterval(countDown,1000);
+        pauseGameBtn.textContent = "Pause";
+    }
+    
+}
+
 
 
 squares.forEach(square => {
     square.addEventListener('mousedown',()=>{
+        if(timerId !== null){
         if(square.id === hitPos){
             currentScore++;
             score.innerHTML = `Your Score : ${currentScore}`
-
             hitPos = null;
-        }
+        }}
     });
 })
 
 
-
-
-function startGame(){
-    score = 0;
-    timeRemaining =60;
-    //callback function
-    // setInterval(randomPosition,1000);
-    // setInterval(countDown,1000);
-
-}
-
-
 startNewGameBtn.addEventListener('click',startGame);
+pauseGameBtn.addEventListener('click', pauseResumeGame);
