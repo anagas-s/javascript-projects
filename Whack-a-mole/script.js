@@ -8,7 +8,8 @@ let timeRemaining = 60;
 let hitPos = null;
 let timerId = null;
 let randomPositionId = null;
-
+let gameSound = new Audio('./assets/gameMusic.mp3')
+let hitSound = new Audio('./assets/hitMusic.mp3')
 
 
 
@@ -39,8 +40,9 @@ function startGame(){
     timeRemaining =60;
     score.innerHTML = "Your Score: 0";
     timeLeft.innerHTML = "Time Left: 60";
+    pauseGameBtn.innerHTML = "Pause"
     //callback function
-   
+    gameSound.play();
     timerId =  setInterval(randomPosition,1000);
     randomPositionId =  setInterval(countDown,1000);
 
@@ -49,14 +51,14 @@ function startGame(){
 
 function pauseResumeGame(){
     if(pauseGameBtn.textContent === 'Pause'){
-        
+        gameSound.pause();
         clearInterval(timerId);
         clearInterval(randomPositionId);
         timerId = null;
         randomPositionId = null;
         pauseGameBtn.textContent = 'Resume'
     }else {
-        
+        gameSound.play();
         timerId =  setInterval(randomPosition,1000);
         randomPositionId =  setInterval(countDown,1000);
         pauseGameBtn.textContent = "Pause";
@@ -70,6 +72,11 @@ squares.forEach(square => {
     square.addEventListener('mousedown',()=>{
         if(timerId !== null){
         if(square.id === hitPos){
+            hitSound.play();
+            setTimeout(()=>{
+                hitSound.pause();
+            },1000)
+            
             currentScore++;
             score.innerHTML = `Your Score : ${currentScore}`
             hitPos = null;
