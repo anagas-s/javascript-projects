@@ -3,6 +3,7 @@ let timeLeft = document.getElementById('timeLeft')
 let startNewGameBtn = document.getElementById('startNewGame')
 let pauseGameBtn = document.getElementById('pauseGame')
 let squares = document.querySelectorAll(".square");
+let grid = document.querySelector('.grid');
 let currentScore =0;
 let timeRemaining = 60;
 let hitPos = null;
@@ -32,15 +33,22 @@ function countDown(){
     if(timeRemaining === 0) {
         clearInterval(timerId);
         clearInterval(randomPositionId);
+        grid.style.display = "none";
+        pauseGameBtn.style.display = "none";
+        gameSound.pause();
     }
 }
 
 function startGame(){
+    clearInterval(timerId);
+        clearInterval(randomPositionId);
     currentScore = 0;
     timeRemaining =60;
     score.innerHTML = "Your Score: 0";
     timeLeft.innerHTML = "Time Left: 60";
+    pauseGameBtn.style.display = 'inline-block  '
     pauseGameBtn.innerHTML = "Pause"
+    grid.style.display = "flex";
     //callback function
     gameSound.play();
     timerId =  setInterval(randomPosition,1000);
