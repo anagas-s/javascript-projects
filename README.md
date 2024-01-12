@@ -14,3 +14,6 @@ In this repository, I'm embarking on a journey to master vanilla Javascript by b
 # Projects
 1. Todo List
 2. Notes App
+3. Whack-a-mole game
+4. Quotes generator
+5. Infinite Scroll - Unsplash API
