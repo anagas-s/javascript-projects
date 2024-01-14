@@ -17,3 +17,4 @@ In this repository, I'm embarking on a journey to master vanilla Javascript by b
 3. Whack-a-mole game
 4. Quotes generator
 5. Infinite Scroll - Unsplash API
+6. Picture in Picture Application
