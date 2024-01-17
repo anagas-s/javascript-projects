@@ -15,7 +15,7 @@ In this repository, I'm embarking on a journey to master vanilla Javascript by b
 1. Todo List
 2. Notes App
 3. Whack-a-mole game
-4. Quotes generator
+4. Quotes Generator
 5. Infinite Scroll - Unsplash API
 6. Picture in Picture Application
 7. Weather App
