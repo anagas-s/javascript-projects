@@ -19,3 +19,5 @@ In this repository, I'm embarking on a journey to master vanilla Javascript by b
 5. Infinite Scroll - Unsplash API
 6. Picture in Picture Application
 7. Weather App
+8. Exchange Rate Calculator
+9. DOM-ARRAY-METHODS
